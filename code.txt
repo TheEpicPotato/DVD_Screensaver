@@ -44,9 +44,6 @@ void draw() {
     background(20);
     
     if (loop != 0) {
-        textSize(30);
-        text("A loop has been detected, starting new simulation", 270, 342);
-        textSize(18);
         delay(10000);
         reset();
     }
@@ -78,11 +75,11 @@ void draw() {
         bHits = bHits + 1;
     }
     
-    text("Border Hits: " + bHits, 5, 20);
-    text("Corner Hits: " + cHits, 5, 40);
-    
     if (x == x0 && y == y0 && velX == velX0 && velY == velY0) {
         loop = frames/60;
+        textSize(30);
+        text("A loop has been detected, starting new simulation", 270, 342);
+        textSize(18);
         text("Border Hits: " + bHits, 5, 20);
         text("Corner Hits: " + cHits, 5, 40);
         text("Loop: " + loop + "sec", 5, 60);
@@ -126,5 +123,8 @@ void reset() {
     
     frames = 0;
     loop = 0;
+    
+    bHits = 0;
+    cHits = 0;
     
 }
